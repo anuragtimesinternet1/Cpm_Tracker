@@ -1,12 +1,15 @@
 import gspread
 from google.oauth2.service_account import Credentials
 from datetime import datetime, timedelta
+from googleapiclient.discovery import build
+from google.oauth2.service_account import Credentials
+from googleads import errors
 
 def fetch_valid_order_ids(sheet_url,sheet_id):
-    SERVICE_ACCOUNT_FILE = 'credentials.json'
-    SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
-    credentials = Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
-    client = gspread.authorize(credentials)
+    creds_json = json.loads(GOOGLE_CREDENTIALS_JSON)
+    scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
+    creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_json, scope)
+    client = gspread.authorize(creds)
     spreadsheet = client.open_by_url(sheet_url)
     worksheet = spreadsheet.get_worksheet_by_id(sheet_id)
     all_rows = worksheet.get_all_values()
