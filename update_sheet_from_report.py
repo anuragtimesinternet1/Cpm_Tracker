@@ -20,6 +20,7 @@ from googleads import errors
 import logging
 logging.basicConfig(level=logging.DEBUG)
 from oauth2client.service_account import ServiceAccountCredentials
+GOOGLE_CREDENTIALS_JSON = os.getenv('GOOGLE_CREDENTIALS_JSON')
 
 def update_sheet_from_report(sheet_url, sheet_id, report_file):
     creds_json = json.loads(GOOGLE_CREDENTIALS_JSON)
