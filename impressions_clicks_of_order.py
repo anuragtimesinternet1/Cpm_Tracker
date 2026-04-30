@@ -5,7 +5,20 @@ import shutil
 import os
 from googleads import ad_manager
 from fetch_valid_order_names import fetch_valid_order_ids
-client= ad_manager.AdManagerClient.LoadFromStorage('googleads1.yaml')
+import pytz
+import csv
+import json
+from googleapiclient.discovery import build
+from google.oauth2.service_account import Credentials
+
+client = ad_manager.AdManagerClient.LoadFromString(f"""
+   ad_manager:
+    application_name: {os.getenv('APPLICATION_NAME')}
+    network_code: {os.getenv('NETWORK_CODE1')}
+    client_id: {os.getenv('CLIENT_ID')}
+    client_secret: {os.getenv('CLIENT_SECRET')}
+    refresh_token: {os.getenv('REFRESH_TOKEN')}
+  """)
 sheet_url = "https://docs.google.com/spreadsheets/d/1u68QXESgLIlfDHzSY_9QVCd9pFIk-sCqiSBB9IERz9g/edit?gid=1080823886#gid=1080823886"
 sheet_id=1080823886
 
@@ -74,11 +87,3 @@ def download_combined_report_by_name(client, order_names):
     finally:
         if os.path.exists(file_name):
             os.remove(file_name)
-
-if __name__=='__main__':
-    order_ids=fetch_valid_order_ids(sheet_url,sheet_id)
-    print(order_ids)
-    report_file = download_combined_report_by_name(client, order_ids)
-
-    if report_file:
-        print(f"\nFinal report file: {report_file}")
