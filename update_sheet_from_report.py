@@ -1,13 +1,19 @@
 import pandas as pd
 import gspread
 from google.oauth2.service_account import Credentials
+import csv
+import json
+from googleapiclient.discovery import build
+from googleads import errors
+import logging
+logging.basicConfig(level=logging.DEBUG)
+from oauth2client.service_account import ServiceAccountCredential
 
 def update_sheet_from_report(sheet_url, sheet_id, report_file):
-    credentials = Credentials.from_service_account_file(
-        'credentials.json',
-        scopes=['https://www.googleapis.com/auth/spreadsheets']
-    )
-    client = gspread.authorize(credentials)
+    creds_json = json.loads(GOOGLE_CREDENTIALS_JSON)
+    scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
+    creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_json, scope)
+    client = gspread.authorize(creds)
 
     sheet = client.open_by_url(sheet_url)
     worksheet = sheet.get_worksheet_by_id(sheet_id)
