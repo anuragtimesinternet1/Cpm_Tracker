@@ -1,13 +1,25 @@
-import pandas as pd
+import smtplib
+import requests
+from email.message import EmailMessage
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+from googleads import ad_manager
 import gspread
-from google.oauth2.service_account import Credentials
+import tempfile
+import os
+import gzip
+import pandas as pd
+import shutil
+import datetime
+import pytz
 import csv
 import json
 from googleapiclient.discovery import build
+from google.oauth2.service_account import Credentials
 from googleads import errors
 import logging
 logging.basicConfig(level=logging.DEBUG)
-from oauth2client.service_account import ServiceAccountCredential
+from oauth2client.service_account import ServiceAccountCredentials
 
 def update_sheet_from_report(sheet_url, sheet_id, report_file):
     creds_json = json.loads(GOOGLE_CREDENTIALS_JSON)
