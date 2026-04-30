@@ -15,10 +15,9 @@ from googleapiclient.discovery import build
 from google.oauth2.service_account import Credentials
 
 GOOGLE_CREDENTIALS_JSON = os.getenv('GOOGLE_CREDENTIALS_JSON')
-EMAIL_PASSWORD = os.getenv('EMAIL_PASSWORD')
+
 print("APPLICATION_NAME:", os.getenv('APPLICATION_NAME'))
-print("NETWORK_CODE1 :", os.getenv('NETWORK_CODE1'))
-print("NETWORK_CODE2 :", os.getenv('NETWORK_CODE2'))
+print("NETWORK_CODE1 :", os.getenv('NETWORK_CODE'))
 print("CLIENT_ID:", os.getenv('CLIENT_ID'))
 print("CLIENT_SECRET:", os.getenv('CLIENT_SECRET'))
 print("REFRESH_TOKEN:", os.getenv('REFRESH_TOKEN'))
@@ -29,7 +28,7 @@ sheet_id=1080823886
 client = ad_manager.AdManagerClient.LoadFromString(f"""
    ad_manager:
     application_name: {os.getenv('APPLICATION_NAME')}
-    network_code: {os.getenv('NETWORK_CODE1')}
+    network_code: {os.getenv('NETWORK_CODE')}
     client_id: {os.getenv('CLIENT_ID')}
     client_secret: {os.getenv('CLIENT_SECRET')}
     refresh_token: {os.getenv('REFRESH_TOKEN')}
