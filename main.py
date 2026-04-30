@@ -13,16 +13,14 @@ import csv
 import json
 from googleapiclient.discovery import build
 from google.oauth2.service_account import Credentials
-
 GOOGLE_CREDENTIALS_JSON = os.getenv('GOOGLE_CREDENTIALS_JSON')
-
-print("APPLICATION_NAME:", os.getenv('APPLICATION_NAME'))
 print("NETWORK_CODE :", os.getenv('NETWORK_CODE'))
+print("APPLICATION_NAME:", os.getenv('APPLICATION_NAME'))
 print("CLIENT_ID:", os.getenv('CLIENT_ID'))
 print("CLIENT_SECRET:", os.getenv('CLIENT_SECRET'))
 print("REFRESH_TOKEN:", os.getenv('REFRESH_TOKEN'))
-# Google Sheets setup
 from impressions_clicks_of_order import download_combined_report_by_name
+
 sheet_url = "https://docs.google.com/spreadsheets/d/1u68QXESgLIlfDHzSY_9QVCd9pFIk-sCqiSBB9IERz9g/edit?gid=1080823886#gid=1080823886"
 sheet_id=1080823886
 client = ad_manager.AdManagerClient.LoadFromString(f"""
