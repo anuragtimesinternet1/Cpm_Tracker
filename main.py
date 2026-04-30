@@ -17,7 +17,7 @@ from google.oauth2.service_account import Credentials
 GOOGLE_CREDENTIALS_JSON = os.getenv('GOOGLE_CREDENTIALS_JSON')
 
 print("APPLICATION_NAME:", os.getenv('APPLICATION_NAME'))
-print("NETWORK_CODE1 :", os.getenv('NETWORK_CODE'))
+print("NETWORK_CODE :", os.getenv('NETWORK_CODE'))
 print("CLIENT_ID:", os.getenv('CLIENT_ID'))
 print("CLIENT_SECRET:", os.getenv('CLIENT_SECRET'))
 print("REFRESH_TOKEN:", os.getenv('REFRESH_TOKEN'))
