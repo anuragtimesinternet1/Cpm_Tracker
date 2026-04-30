@@ -4,6 +4,7 @@ from datetime import datetime, timedelta
 from googleapiclient.discovery import build
 from google.oauth2.service_account import Credentials
 from googleads import errors
+GOOGLE_CREDENTIALS_JSON = os.getenv('GOOGLE_CREDENTIALS_JSON')
 
 def fetch_valid_order_ids(sheet_url,sheet_id):
     creds_json = json.loads(GOOGLE_CREDENTIALS_JSON)
