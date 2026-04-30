@@ -3,12 +3,7 @@ name: CPM Tracker
 on:
   workflow_dispatch:
   schedule:
-    - cron: '30 2 * * *'
-    - cron: '30 6 * * *'
-    - cron: '30 9 * * *'
-    - cron: '30 12 * * *'
-    - cron: '30 15 * * *'
-
+  - cron: '0 * * * *'
 jobs:
   run-main:
     runs-on: ubuntu-latest
