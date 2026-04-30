@@ -18,8 +18,7 @@ jobs:
     env:
       # Repo Variables
       APPLICATION_NAME: ${{ vars.APPLICATION_NAME }}
-      NETWORK_CODE1: ${{ vars.NETWORK_CODE1 }}
-      NETWORK_CODE2: ${{ vars.NETWORK_CODE2 }}
+      NETWORK_CODE1: ${{ vars.NETWORK_CODE }}
       CLIENT_ID: ${{ vars.CLIENT_ID }}
       CLIENT_SECRET: ${{ vars.CLIENT_SECRET }}
       REFRESH_TOKEN: ${{ vars.REFRESH_TOKEN }}
