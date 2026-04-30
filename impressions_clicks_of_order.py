@@ -11,17 +11,6 @@ import json
 from googleapiclient.discovery import build
 from google.oauth2.service_account import Credentials
 
-client = ad_manager.AdManagerClient.LoadFromString(f"""
-   ad_manager:
-    application_name: {os.getenv('APPLICATION_NAME')}
-    network_code: {os.getenv('NETWORK_CODE')}
-    client_id: {os.getenv('CLIENT_ID')}
-    client_secret: {os.getenv('CLIENT_SECRET')}
-    refresh_token: {os.getenv('REFRESH_TOKEN')}
-  """)
-sheet_url = "https://docs.google.com/spreadsheets/d/1u68QXESgLIlfDHzSY_9QVCd9pFIk-sCqiSBB9IERz9g/edit?gid=1080823886#gid=1080823886"
-sheet_id=1080823886
-
 def download_combined_report_by_name(client, order_names):
     print(f"Downloading report for orders: {order_names}")
 
