@@ -14,7 +14,7 @@ from google.oauth2.service_account import Credentials
 client = ad_manager.AdManagerClient.LoadFromString(f"""
    ad_manager:
     application_name: {os.getenv('APPLICATION_NAME')}
-    network_code: {os.getenv('NETWORK_CODE1')}
+    network_code: {os.getenv('NETWORK_CODE')}
     client_id: {os.getenv('CLIENT_ID')}
     client_secret: {os.getenv('CLIENT_SECRET')}
     refresh_token: {os.getenv('REFRESH_TOKEN')}
