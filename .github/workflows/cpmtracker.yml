@@ -14,8 +14,8 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      APPLICATION_NAME: ${{ vars.APPLICATION_NAME }}
-      NETWORK_CODE: ${{ vars.NETWORK_CODE }}
+      APPLICATION_NAME: ${{ secrets.APPLICATION_NAME }}
+      NETWORK_CODE: ${{ secrets.NETWORK_CODE }}
       CLIENT_ID: ${{ secrets.CLIENT_ID }}
       CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
       REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
